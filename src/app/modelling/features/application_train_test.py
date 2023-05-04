@@ -64,7 +64,7 @@ def make_features(path_read, path_save):
     # разница во времени между сменой документа и возрастом на момент смены документы
     features['doc_diff'] = features['age'] - features['doc_age']
 
-    # Признак задержки смены документа. Документ выдается или меняется в 14, 20 и 45 лет
+    # признак задержки смены документа. документ выдается или меняется в 14, 20 и 45 лет
     decoy1 = ((14 <= features['age']) &
               (features['age'] < 20) &
               (features['age'] - features['doc_age'] == 14))
@@ -99,7 +99,7 @@ def make_features(path_read, path_save):
 
     # поделим людей на группы в зависимости от пола и образования.
     # в каждой группе посчитаем средний доход.
-    # сделаем признак разница емжду средним доходом в группе и доходом заявителя
+    # сделаем признак разница между средним доходом в группе и доходом заявителя
     features['mean_income_gender_ed'] = (df.groupby(['CODE_GENDER', 'NAME_EDUCATION_TYPE'])['AMT_INCOME_TOTAL']
                                          .transform('mean') - df['AMT_INCOME_TOTAL'])
 
