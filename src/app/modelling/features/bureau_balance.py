@@ -76,7 +76,7 @@ last_closed = closed.groupby(['SK_ID_CURR', 'SK_ID_BUREAU']).last()
 features['gap_now_last_closed'] = last_closed.groupby('SK_ID_CURR')['MONTHS_BALANCE'].max()
 del closed, last_closed
 
-# Интервал между взятием последнего активного займа и текущей заявкой
+# интервал между взятием последнего активного займа и текущей заявкой
 active = bureau_balance[bureau_balance['STATUS'] != 'C']
 last_active = active.groupby(['SK_ID_CURR', 'SK_ID_BUREAU']).last()
 features['gap_now_last_closed'] = last_active.groupby('SK_ID_CURR')['MONTHS_BALANCE'].max()
